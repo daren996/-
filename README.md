@@ -54,9 +54,11 @@
 
 > E(Y|A<sub>0</sub>=d\*<sub>0</sub>(X<sub>0</sub>), A<sub>1</sub>=d\*<sub>1</sub>(X<sub>1</sub>), ..., A<sub>k</sub>=d*<sub>k</sub>(X<sub>k</sub>), X)
 
-解决思路通常为反向递推，主要有 Q-learning, A-learning, Deep A-learning 方法。
-[Technical Note Q-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Technical%20Note%20Q-learning.pdf)
-[Optimal dynamic treatment regimes](https://github.com/daren996/EducationDataMining/blob/master/Cite/Optimal%20dynamic%20treatment%20regimes.pdf)
+解决思路通常为反向递推，主要有 [Q-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Technical%20Note%20Q-learning.pdf), [A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Optimal%20dynamic%20treatment%20regimes.pdf), Deep A-learning 方法。
+
+
+
+
 
 ### 基于回归分析构建精准教学方案的影响因素模型
 
