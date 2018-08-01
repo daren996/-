@@ -54,7 +54,7 @@
 
 > E(Y|A<sub>0</sub>=d\*<sub>0</sub>(X<sub>0</sub>), A<sub>1</sub>=d\*<sub>1</sub>(X<sub>1</sub>), ..., A<sub>k</sub>=d*<sub>k</sub>(X<sub>k</sub>), X)
 
-解决思路通常为反向递推，主要有 [Q-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Technical%20Note%20Q-learning.pdf), [A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Optimal%20dynamic%20treatment%20regimes.pdf), Deep A-learning 方法。
+解决思路通常为反向递推，主要有 [Q-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Technical%20Note%20Q-learning.pdf), [A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Optimal%20dynamic%20treatment%20regimes.pdf), [Deep A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/On%20estimation%20of%20optimal%20treatment%20regimes%20for%20maximizing%20t%E2%80%90year%20survival%20probability.pdf) 方法。
 
 
 
@@ -72,4 +72,6 @@
 > β = argmin [ Y - βX<sup>2</sup>＋p(β, λ) ]
 
 
+## Source
 
+一个关于教育数据挖掘的数据库：[DataShop@CMU](https://pslcdatashop.web.cmu.edu/)
