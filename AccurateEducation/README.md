@@ -39,10 +39,10 @@
 > d*(x) = argmax [ E(Y|A=d(X),X) ]
 
 寻找最优精准教学方案的一种方法是基于对 E(Y|A=d(X),X) 的估计，在一系列可能的教学方案中搜索使其最大的教学方案。Zhang 等人提出一种关于 E(Y|A=d(X),X) 的双稳健估计量，并在此基础上找到最优方案d*。估计量的双稳健性保证其不受模型误设的影响，也就是说，即使模型选取有误也能够通过算法对模型进行修正。
-[A Robust Method for Estimating Optimal Treatment Regimes](https://github.com/daren996/EducationDataMining/blob/master/Cite/A%20Robust%20Method%20for%20Estimating%20Optimal%20Treatment%20Regimes.pdf)
+[A Robust Method for Estimating Optimal Treatment Regimes](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/A%20Robust%20Method%20for%20Estimating%20Optimal%20Treatment%20Regimes.pdf)
 
 另一种方法是将这一寻找最优解的优化问题进行转化。Zhao 等人提出一种基于分类的加权机器学习方法。文中指出之前的最优方案选择方法更像是寻找某种模型下的最优方案，即满足某种限定条件的最优方案，因而提出了一种直接寻找最优方案的方法———分类加权机器学习算法。
-[Estimating Individualized Treatment Rules Using Outcome Weighted Learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Estimating%20Individualized%20Treatment%20Rules%20Using%20Outcome.pdf)
+[Estimating Individualized Treatment Rules Using Outcome Weighted Learning](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/Estimating%20Individualized%20Treatment%20Rules%20Using%20Outcome.pdf)
 
 ### 多阶段最优精准教学方案的设计
 
@@ -54,7 +54,7 @@
 
 > E(Y|A<sub>0</sub>=d\*<sub>0</sub>(X<sub>0</sub>), A<sub>1</sub>=d\*<sub>1</sub>(X<sub>1</sub>), ..., A<sub>k</sub>=d*<sub>k</sub>(X<sub>k</sub>), X)
 
-解决思路通常为反向递推，主要有 [Q-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Technical%20Note%20Q-learning.pdf), [A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/Optimal%20dynamic%20treatment%20regimes.pdf), [Deep A-learning](https://github.com/daren996/EducationDataMining/blob/master/Cite/On%20estimation%20of%20optimal%20treatment%20regimes%20for%20maximizing%20t%E2%80%90year%20survival%20probability.pdf) 方法。
+解决思路通常为反向递推，主要有 [Q-learning](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/Technical%20Note%20Q-learning.pdf), [A-learning](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/Optimal%20dynamic%20treatment%20regimes.pdf), [Deep A-learning](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/On%20estimation%20of%20optimal%20treatment%20regimes%20for%20maximizing%20t%E2%80%90year%20survival%20probability.pdf) 方法。
 
 
 
