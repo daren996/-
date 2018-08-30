@@ -16,7 +16,7 @@ Implementation of cloze questions generation.
 
 # 论文思路
 
-论文原文：[提高完形填空问题质量的选择策略](https://github.com/daren996/EducationDataMining/blob/master/Cite/A_Selection_Strategy_to_Improve_Cloze_Question_Quality.pdf)
+论文原文：[提高完形填空问题质量的选择策略](https://github.com/daren996/EducationDataMining/blob/master/AccurateEducation/Cite/A%20Selection%20Strategy%20to%20Improve%20Cloze%20Question%20Quality.pdf)
 
 ## 选择句子
 
