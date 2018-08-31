@@ -1,43 +1,49 @@
-
-import json
+import os
 import nltk
+from nltk.parse import stanford
 from nltk.corpus import wordnet as wn
 
 
-# if __name__ == '__main__':
-#     word = input()
-#     count = 0
-#     word_syn_set = wn.synsets(word)
-#     for word_syn in word_syn_set:
-#         count += 1
-#         print("\nset" + str(count) + ":")
-#         word_names = word_syn.lemma_names()
-#         examples = word_syn.examples()
-#         for word_name in word_names:
-#             print("", word_name, end="")
-#         print()
-#         count_example = 0
-#         for example in examples:
-#             count_example += 1
-#             print(" example" + str(count_example) + ":", example)
+def get_sentences(w):
+    sens = []
+    count = 0
+    word_syn_set = wn.synsets(w)
+    for word_syn in word_syn_set:
+        count += 1
+        word_names = word_syn.lemma_names()
+        examples = word_syn.examples()
+        count_example = 0
+        for example in examples:
+            count_example += 1
+            sens.append(example)
+    return sens
 
-import os
-from nltk.parse import stanford
 
-# 添加stanford环境变量,此处需要手动修改，jar包地址为绝对地址。
-os.environ['STANFORD_PARSER'] = 'E:/jars/stanford-parser.jar'
-os.environ['STANFORD_MODELS'] = 'E:/jars/stanford-parser-3.5.0-models.jar'
+def get_complexity_score(sens):
+    scores = []
+    for sen in sens:
+        score_complexity = 0
+        os.environ['STANFORD_PARSER'] = 'E:/stanfordParser/jars/stanford-parser.jar'
+        os.environ['STANFORD_MODELS'] = 'E:/stanfordParser/jars/stanford-parser-3.9.1-models.jar'
+        parser = stanford.StanfordParser(
+            model_path="E:\stanfordParser\englishPCFG.ser.gz")
+        parse = parser.raw_parse(sen)
+        tree = list(parse)[0]
+        for tr in tree.subtrees():
+            if tr.label() == 'S':
+                score_complexity += 1
+        scores.append(score_complexity)
+    return scores
 
-# 为JAVAHOME添加环境变量
-java_path = "C:/Program Files (x86)/Java/jdk1.8.0_11/bin/java.exe"
-os.environ['JAVAHOME'] = java_path
 
-# 句法标注
-parser = stanford.StanfordParser(
-    model_path="E:/stanford-parser-full-2014-10-31/stanford-parser-3.5.0-models/edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
-sentences = parser.parse_sents("Hello, My name is Melroy.".split(), "What is your name?".split())
-print(sentences)
+if __name__ == '__main__':
+    word = "car"
+    sentences = get_sentences(word)
+    print("The number of sentences:", len(sentences))
+    score = [0 for i in sentences]
+    complexity_score = get_complexity_score(sentences)
+    for i in range(len(score)):
+        score[i] += complexity_score[i]
+    print(score)
 
-# GUI
-for sentence in sentences:
-    sentence.draw()
+

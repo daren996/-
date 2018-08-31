@@ -2,7 +2,9 @@
 
 Implementation of cloze questions generation. 
 
-# 如何使用 WordNet
+# 准备工作
+
+## 使用 WordNet
 
 我们的程序基于 [NLTK](http://www.nltk.org/) 
 
@@ -15,6 +17,22 @@ Implementation of cloze questions generation.
 	['car', 'auto', 'automobile', 'machine', 'motorcar']
 	>>> wn.synset('car.n.01').examples()            //获取该词在该词集下的例句
 	['he needs a car to get to work']
+
+## 使用 stanford parser
+
+程序使用了 [Stanford Parser](https://nlp.stanford.edu/software/lex-parser.html)
+
+可以下载其最新版本，解压后获得其中的路径，设置环境变量如下。
+必须装有 java。
+
+	os.environ['STANFORD_PARSER'] = '../jars/stanford-parser.jar'
+	os.environ['STANFORD_MODELS'] = '../jars/stanford-parser-3.5.0-models.jar'
+
+在使用中：
+
+	parser = stanford.StanfordParser(model_path="../stanford-parser-full-2014-10-31/stanford-parser-3.5.0-models/edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
+	sentences = parser.parse_sents("Hello, My name is Melroy.".split(), "What is your name?".split())
+	print(sentences)
 
 # 论文思路
 
@@ -34,6 +52,24 @@ Implementation of cloze questions generation.
 4. 长度 length
 
 我们使用 [Stanford 解析器](https://nlp.stanford.edu/software/lex-parser.html) 解析它并计算得到的子句数来评估句子的复杂性。
+例如，用其解析句子： 
+
+>We didn’ t get much information from the first report, but subsequent reports were much more helpful.
+
+	(S
+	  (S
+	    (NP (NP (NP (PRP We)) (ADJP (JJ didn)) (POS ')) (NN t))
+	    (VP
+	      (VBP get)
+	      (NP (JJ much) (NN information))
+	      (PP (IN from) (NP (DT the) (JJ first) (NN report)))))
+	  (, ,)
+	  (CC but)
+	  (S
+	    (NP (JJ subsequent) (NNS reports))
+	    (VP (VBD were) (ADJP (RB much) (RBR more) (JJ helpful))))
+	  (. .)
+	)
 
 如果句子的上下文要求句子中存在目标词并拒绝任何其他词的存在，则认为句子的上下文是明确定义的。
 评估关于目标词在句子中如何明确定义上下文的方法是将目标词与句子中的其他词之间的搭配分数相加。 
