@@ -21,6 +21,7 @@ Implementation of cloze questions generation.
 ## 使用 stanford parser
 
 程序使用了 [Stanford Parser](https://nlp.stanford.edu/software/lex-parser.html)
+下载链接：https://pan.baidu.com/s/11yERcUjgU2FxzGgyjFMqkw 密码：gj35
 
 可以下载其最新版本，解压后获得其中的路径，设置环境变量如下。
 必须装有 java。
