@@ -167,7 +167,7 @@ def get_distracts(sen, w):
 
 
 if __name__ == '__main__':
-    word = ""
+    word = "regularly"
     sentences = get_sentences(word)
     print("The number of sentences:", len(sentences))
     scores = [0 for i in sentences]
@@ -193,6 +193,7 @@ if __name__ == '__main__':
     synonym = get_synonym(word)
     print("sentence:", sentence, " word:", word)
     distracts += get_distracts(sentence, word)
+    distracts = [x.lower() for x in distracts]
     print("distracts:", distracts)
     random.shuffle(distracts)
     sentence = sentence.replace(word, '_____')
