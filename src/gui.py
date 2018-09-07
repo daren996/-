@@ -26,10 +26,9 @@ def insert_point():
         else:
             distracts = [word]
             synonym = main.get_synonym(word)
-            distracts += ['normally', 'usually', 'often']  # main.get_distracts(sentence, word)  # 还没删近义词
+            distracts += main.get_distracts(sentence, word)  # 还没删近义词
+            distracts = [x.lower() for x in distracts]
             random.shuffle(distracts)
-            sentence = "When I left, I successfully had enough money of my own to be able to pay my first trip and " \
-                       "I have been going regularly ever since then."
             sentence = sentence.replace(word, '_____')
             text.insert(INSERT, sentence + "\n\n")
             count = 0
