@@ -1,16 +1,16 @@
-import main
+import generator
 import random
 from tkinter import *  # 导入 Tkinter 库
 
 
 def insert_point():
     word = entry.get()
-    sentences = main.get_sentences(word)
+    sentences = generator.get_sentences(word)
     scores = [0 for i in sentences]
-    complexity_scores = main.get_complexity_score(sentences)
-    context_scores = main.get_context_score(sentences)
-    grammar_scores = main.get_grammar_score(sentences, word)
-    length_scores = main.get_length_score(sentences)
+    complexity_scores = generator.get_complexity_score(sentences)
+    context_scores = generator.get_context_score(sentences)
+    grammar_scores = generator.get_grammar_score(sentences, word)
+    length_scores = generator.get_length_score(sentences)
     for i in range(len(scores)):
         scores[i] += (complexity_scores[i] / max(complexity_scores)) * \
                      (context_scores[i] / max(context_scores)) * \
@@ -25,8 +25,8 @@ def insert_point():
             text.insert(INSERT, "Sorry! Can't generate cloze test for \"" + word + "\".")
         else:
             distracts = [word]
-            synonym = main.get_synonym(word)
-            distracts += main.get_distracts(sentence, word)  # 还没删近义词
+            synonym = generator.get_synonym(word)
+            distracts += generator.get_distracts(sentence, word)  # 还没删近义词
             distracts = [x.lower() for x in distracts]
             random.shuffle(distracts)
             sentence = sentence.replace(word, '_____')

@@ -1,7 +1,6 @@
 import os
 import nltk
 import random
-import conf
 from nltk.parse import stanford
 from nltk.corpus import (gutenberg, genesis, inaugural,
                          nps_chat, webtext, treebank, wordnet)
