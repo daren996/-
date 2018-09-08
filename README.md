@@ -131,7 +131,6 @@ Implementation of cloze questions generation.
 
 1) 寻找同义词的过程使用了 WordNet 
 
-
 	>>> from nltk.corpus import wordnet as wn
 	>>> wn.synsets('motorcar')  # 找到同义词集
 	[Synset('car.n.01')]
