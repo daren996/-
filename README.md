@@ -146,12 +146,12 @@ Implementation of cloze questions generation.
 2) 得到干扰项
 
 	words_fre = []
-    temp = sen.split(" ")  # 拆分句子到单词序列
-    word_tag = dict(nltk.pos_tag(temp))  # 得到每个单词词性
-    temp.remove(w)  # 去除原始单词
-    for n in temp:
-        if word_tag[n] in conf.contexts:  # 只分析有意义的单词
-            words_fre += get_frequent_words(n)  # 得到干扰项及其得分
-    words_fre = sorted(words_fre, key=lambda item: item[1], reverse=True)  # 按照得分排序
-    words_fre = [x for x in words_fre if x not in conf.stopwords]  # 移除停用词
-    return [words_fre[x][0] for x in range(0, min(3, len(words_fre)))]  # 返回前三名
+	temp = sen.split(" ")  # 拆分句子到单词序列
+	word_tag = dict(nltk.pos_tag(temp))  # 得到每个单词词性
+	temp.remove(w)  # 去除原始单词
+	for n in temp:
+		if word_tag[n] in conf.contexts:  # 只分析有意义的单词
+			words_fre += get_frequent_words(n)  # 得到干扰项及其得分
+	words_fre = sorted(words_fre, key=lambda item: item[1], reverse=True)  # 按照得分排序
+	words_fre = [x for x in words_fre if x not in conf.stopwords]  # 移除停用词
+	return [words_fre[x][0] for x in range(0, min(3, len(words_fre)))]  # 返回前三名
