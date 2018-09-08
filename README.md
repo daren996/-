@@ -129,17 +129,7 @@ Implementation of cloze questions generation.
 
 # 重要代码注释
 
-1) 寻找同义词的过程使用了 WordNet 
-
-	>>> from nltk.corpus import wordnet as wn
-	>>> wn.synsets('motorcar')  # 找到同义词集
-	[Synset('car.n.01')]
-	>>> wn.synset('car.n.01').lemma_names()  # 访问同义词集
-	['car', 'auto', 'automobile', 'machine', 'motorcar']
-	>>> wn.synset('car.n.01').examples()  # 获取该词在该词集下的例句
-	['he needs a car to get to work']
-
-2) 使用 stanford parser 得到的子句数评估句子的复杂性
+1) 使用 stanford parser 得到的子句数评估句子的复杂性
 
 	parser = stanford.StanfordParser(model_path="E:\stanfordParser\englishPCFG.ser.gz")  # 导入斯坦福解析器
 	ss = []
@@ -153,7 +143,7 @@ Implementation of cloze questions generation.
 
 类似的，也可以评估语法得分
 
-3) 得到干扰项
+2) 得到干扰项
 
 	words_fre = []
     temp = sen.split(" ")  # 拆分句子到单词序列
