@@ -131,6 +131,7 @@ Implementation of cloze questions generation.
 
 1) 寻找同义词的过程使用了 WordNet 
 
+
 	>>> from nltk.corpus import wordnet as wn
 	>>> wn.synsets('motorcar')  # 找到同义词集
 	[Synset('car.n.01')]
@@ -144,31 +145,12 @@ Implementation of cloze questions generation.
 	parser = stanford.StanfordParser(model_path="E:\stanfordParser\englishPCFG.ser.gz")  # 导入斯坦福解析器
 	ss = []
 	for sen in sens:
-    score_complexity = 1  # 句子初始得分为1
-	parse = parser.raw_parse(sen)
-	    tree = list(parse)[0]  # 得到句子成分分析树
-	    for tr in tree.subtrees()
+    	score_complexity = 1  # 句子初始得分为1
+		parse = parser.raw_parse(sen)
+		tree = list(parse)[0]  # 得到句子成分分析树
+		for tr in tree.subtrees()
 			......
-	    ss.append(score_complexity)
-
-句子成分分析树类似下面结构
-
-例句：We didn’ t get much information from the first report, but subsequent reports were much more helpful.
-
-	(S
-	  (S
-	    (NP (NP (NP (PRP We)) (ADJP (JJ didn)) (POS ')) (NN t))
-	    (VP
-	      (VBP get)
-	      (NP (JJ much) (NN information))
-	      (PP (IN from) (NP (DT the) (JJ first) (NN report)))))
-	  (, ,)
-	  (CC but)
-	  (S
-	    (NP (JJ subsequent) (NNS reports))
-	    (VP (VBD were) (ADJP (RB much) (RBR more) (JJ helpful))))
-	  (. .)
-	)
+		ss.append(score_complexity)
 
 类似的，也可以评估语法得分
 
