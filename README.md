@@ -143,13 +143,13 @@ Implementation of cloze questions generation.
 
 	parser = stanford.StanfordParser(model_path="E:\stanfordParser\englishPCFG.ser.gz")  # 导入斯坦福解析器
 	ss = []
-    for sen in sens:
-        score_complexity = 1  # 句子初始得分为1
-        parse = parser.raw_parse(sen)
-        tree = list(parse)[0]  # 得到句子成分分析树
-        for tr in tree.subtrees():
+	for sen in sens:
+    score_complexity = 1  # 句子初始得分为1
+	parse = parser.raw_parse(sen)
+	    tree = list(parse)[0]  # 得到句子成分分析树
+	    for tr in tree.subtrees()
 			......
-        ss.append(score_complexity)
+	    ss.append(score_complexity)
 
 句子成分分析树类似下面结构
 
