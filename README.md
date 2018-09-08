@@ -131,6 +131,8 @@ Implementation of cloze questions generation.
 
 1) 使用 stanford parser 得到的子句数评估句子的复杂性
 
+本质上就是句子的子句数目
+
 	parser = stanford.StanfordParser(model_path="E:\stanfordParser\englishPCFG.ser.gz")  # 导入斯坦福解析器
 	ss = []
 	for sen in sens:
@@ -144,6 +146,8 @@ Implementation of cloze questions generation.
 类似的，也可以评估语法得分
 
 2) 得到干扰项
+
+找到在语法和搭配上得分较高的词，将其作为干扰项
 
 	words_fre = []
 	temp = sen.split(" ")  # 拆分句子到单词序列
